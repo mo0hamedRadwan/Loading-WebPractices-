@@ -1,0 +1,827 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: "Poppins" , sans-serif;
+}
+
+section{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Loading 1 Style */
+
+.loading-1{
+    padding: 20px;
+    background-color: #001300;
+    animation: AnimateChangeColors 5s infinite linear;
+}
+
+@keyframes AnimateChangeColors {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.loading-1 .loader{
+    display: flex;
+}
+
+.loading-1 .loader .dot{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 5px;
+    transform: scale(0.1);
+    box-shadow: 0 0 10px #00dd0050,
+    0 0 20px #00dd0050,
+    0 0 30px #00dd0050,
+    0 0 40px #00dd0050,
+    0 0 50px #00dd0050;
+
+    animation: AnimateLoaderDot 2s infinite linear;
+    animation-delay: calc(0.1s * var(--i));
+}
+.loading-1 .loader:last-child .dot{
+    animation-delay: calc(-0.1s * var(--i));
+}
+
+@keyframes AnimateLoaderDot {
+    0%{
+        transform: scale(0.1);
+    }
+    10%{
+        transform: scale(1);
+    }
+    50%, 100%{
+        transform: scale(0.1);
+    }
+}
+
+.loading-1 h2{
+    color: #fff;
+    letter-spacing: 4px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Loading 2 Style */
+
+.loading-2{
+    padding: 20px;
+    background-color: #0c1b21;
+    position: relative;
+}
+
+.loading-2 .loader{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    position: relative;
+    /* border: 1px solid red; */
+    animation: AnimateRotate 15s infinite linear;
+    filter: url(#gooey);
+}
+
+.loading-2 .loader .dot{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate( calc(45deg * var(--i)) );
+    /* border: 1px solid blue; */
+}
+
+.dot.rotate {
+    animation: AnimateRotate 4s infinite ease-in-out;
+    animation-delay: calc(0.2s * var(--j));
+}
+
+@keyframes AnimateRotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.loading-2 .loader .dot::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-image: linear-gradient(45deg , #c7eeff , #03a9f4);
+    box-shadow: 0 0 10px #00bcd4;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+}
+
+svg{
+    width: 0;
+    height: 0;
+}
+
+/* Loading 3 Style */
+
+.loading-3{
+    padding: 20px;
+    background-color: #001f38;
+    position: relative;
+}
+
+.loading-3::before{
+    content: "";
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.loading-3 .loader{
+    width: 200px;
+    height: 300px;
+    position: relative;
+}
+
+.loading-3 .loader::before{
+    content: "";
+    width: 20px;
+    height: 7px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    filter: blur(2px);
+    opacity: 0.7;
+    animation: AnimateShadow 2s infinite linear;
+    animation-delay: -1s;
+}
+
+@keyframes AnimateShadow {
+    0%,100%{
+        transform: scale(1.5);
+        opacity: 0.4;
+    }
+    30%,40%{
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+}
+
+.loading-3 .loader .semi-circle{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: calc(50% - 40px);;
+    left: calc(50% - 40px);
+    /* transform: translate(-50% , -50%); */
+    border-bottom: 40px solid #2196f3;
+    border-radius: 50%;
+    animation: AnimateReverseRotate 2s infinite linear;
+}
+
+@keyframes AnimateReverseRotate {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.loading-3 .loader .ball{
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% + 20px);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: AnimateBounceUp 2s infinite linear;
+}
+
+@keyframes AnimateBounceUp {
+    0%,100%{
+        transform: translateY(0px);
+    }
+    30%{
+        transform: translateY(-70px);
+    }
+    40%{
+        transform: translateY(-100px);
+    }
+}
+
+.loading-3 .loader .ball-2{
+    top: calc(50% - 0px);
+    left: calc(50% - 40px);
+    animation: AnimateBounceDown 2s infinite linear;
+    animation-delay: -1s;
+}
+
+@keyframes AnimateBounceDown {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    30% {
+        transform: translateY(70px);
+    }
+
+    40% {
+        transform: translateY(100px);
+    }
+}
+
+/* Loading 4 Style */
+
+.loading-4{
+    width: 280px;
+    padding: 50px;
+    background-color: #121213;
+}
+
+.loading-4 .loader{}
+
+.loading-4 .loader h2{
+    color: #03a9f4;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    border-right: 2px solid #03a9f4;
+    position: relative;
+    overflow: hidden;
+    animation: AnimateTyping 8s steps(10) infinite,
+               AnimateBlinkCursor 1s steps(3) infinite;
+}
+
+@keyframes AnimateTyping {
+    0%,90%,100%{
+        width: 0;
+    }
+    30%,60%{
+        width: 185px;
+    }
+}
+
+@keyframes AnimateBlinkCursor {
+    0%,75% {
+        border-right: 2px solid #03a9f4;
+    }
+    76%,100% {
+        border-right: 2px solid transparent;
+    }
+}
+
+/* Loading 5 Styles */
+
+.loading-5{
+    width: 250px;
+    height: 250px;
+    background-color: #001d10;
+    animation: AnimateChangeColors 5s infinite linear;
+}
+
+.loading-5 .loader{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.loading-5 .loader .block{
+    width: 8px;
+    height: 20px;
+    background-color: #050c09;
+    border-radius: 8px;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: rotate(calc(18deg * var(--i)));
+    transform-origin: 0px 100px; /* Height / 2 - 25px */
+    animation: AnimateChangeBG 2s ease-in-out infinite;
+    animation-delay: calc(0.05s * var(--i));
+}
+
+@keyframes AnimateChangeBG {
+    0%,50%{
+        background-color: #050c09;
+        box-shadow: none;
+    }
+    51%,100%{
+        background-color: #0f0;
+        box-shadow: 0 0 5px #0f0,
+                    0 0 10px #0f0,
+                    0 0 20px #0f0,
+                    0 0 30px #0f0;
+    }
+}
+
+.loading-5 .loader h3{
+    font-size: 24px;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    animation: AnimateChangeColor 2s ease-in-out infinite;
+    animation-delay: -1s;
+}
+
+@keyframes AnimateChangeColor {
+    0%, 50% {
+        color: #050c09;
+        text-shadow: none;
+    }
+    
+    51%, 100% {
+        color: #0f0;
+        text-shadow: 0 0 5px #0f0,
+                     0 0 10px #0f0;
+    }
+}
+
+/* Loading 6 Styles */
+
+.loading-6{
+    width: 250px;
+    height: 250px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* animation: AnimateChangeColors 5s linear infinite; */
+    animation: AnimateChangeBG-2 4s steps(1) infinite;
+}
+
+@keyframes AnimateChangeBG-2 {
+    0%,100%{
+        background-color: #ff0;
+    }
+    25%{
+        background-color: #0f0;
+    }
+    50%{
+        background-color: #ff4786;
+    }
+    75%{
+        background-color: #2da2ff;
+    }
+}
+
+.loading-6 .loader{
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    position: relative;
+    animation: AnimateRotate90 1s linear infinite;
+}
+
+@keyframes AnimateRotate90 {
+    0%{
+        transform: rotate(90deg);
+    }
+    50%,100%{
+        transform: rotate(0deg);
+    }
+}
+
+.loading-6 .loader div{
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    animation: AnimateRotate180 1s linear infinite;
+}
+
+@keyframes AnimateRotate180 {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    50%, 100% {
+        transform: rotate(180deg);
+    }
+}
+
+.loading-6 .loader .square-1{
+    top: -100%;
+    left: -2px;
+    transform-origin: bottom right;
+}
+
+.loading-6 .loader .square-2{
+    top: -2px;
+    right: -100%;
+    transform-origin: bottom left;
+}
+
+.loading-6 .loader .square-3{
+    bottom: -100%;
+    left: 2px;
+    transform-origin: top left;
+}
+
+.loading-6 .loader .square-4{
+    top: 2px;
+    left: -100%;
+    transform-origin: top right;
+}
+
+.loading-6 .loader::before,
+.loading-6 .loader div::before{
+    content: '';
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    background-color: #fff;
+}
+
+.loading-6 .loader .square-1::before {
+    background-color: #ff0;
+}
+
+.loading-6 .loader .square-2::before {
+    background-color: #0f0;
+}
+
+.loading-6 .loader .square-3::before {
+    background-color: #ff4786;
+}
+
+.loading-6 .loader .square-4::before {
+    background-color: #2da2ff;
+}
+
+/* Loading 7 Style */
+
+.loading-7{
+    width: 300px;
+    height: 200px;
+    background-color: #042104;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: AnimateChangeColors 8s linear infinite;
+}
+
+.loading-7 .loader{
+    display: flex;
+}
+
+.loading-7 .loader .circle{
+    width: 100px;
+    height: 100px;
+    margin: 0 -5px;
+    position: relative;
+}
+
+.loading-7 .loader .circle span{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(calc(18deg * var(--i)));
+}
+
+.loading-7 .loader .circle span::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #0f0;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 0;
+
+    box-shadow: 0 0 5px #0f0,
+                0 0 10px #0f0,
+                0 0 20px #0f0,
+                0 0 30px #0f0;
+    transform: scale(0.1);
+    animation: AnimateInfinite 4s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes AnimateInfinite {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0.1);
+    }
+}
+
+.loading-7 .loader .circle:nth-child(2){
+    transform: rotate(180deg);
+}
+
+.loading-7 .loader .circle:nth-child(2) span::before{
+    animation-delay: calc(-0.1s * var(--i));
+}
+
+.loading-8{
+    width: 300px;
+    height: 300px;
+    background-color: #000;
+}
+
+.loading-8 .loader{
+    position: relative;
+}
+
+.loading-8 .loader span{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #0f0;
+    position: absolute;
+    top: 220px;
+    left: 220px;
+    box-shadow: 0 0 10px #0f0;
+    animation: AnimateSquares 4s linear infinite;
+    animation-delay: calc(-0.5s * var(--i));
+}
+
+@keyframes AnimateSquares {
+    0%{
+        top: 220px;
+        left: 220px;
+        transform: scaleY(1);
+        filter: hue-rotate(0deg);
+    }
+    2% {
+        top: 220px;
+        left: 220px;
+        transform: scaleY(0.4);
+    }
+    10% {
+        top: 220px;
+        left: 220px;
+        transform: scaleY(1);
+    }
+    30% {
+        top: 220px;
+        left: 30px;
+        transform: scaleY(1);
+    }
+    60%{
+        top: 30px;
+        left: 30px;
+        transform: scaleY(1);
+    }
+    85%{
+        top: 30px;
+        left: 220px;
+        transform: scaleY(1);
+    }
+    100%{
+        top: 220px;
+        left: 220px;
+        transform: scaleY(1);
+        filter: hue-rotate(360deg);
+    }
+
+}
+
+.loading-9{
+    width: 300px;
+    height: 200px;
+    padding: 30px;
+    background-color: #ff2525;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-9 ul.loader{
+    display: flex;
+}
+
+.loading-9 ul.loader li{
+    list-style: none;
+    margin-left: 5px;
+    font-size: 36px;
+    font-weight: 500;
+    color: rgba(255, 255, 0, 1);
+    animation: AnimateOpacity 2s ease-in-out infinite;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+@keyframes AnimateOpacity {
+    0%,100%{
+        color: rgba(255, 255, 0, 0.4);
+        margin-left: 5px;
+        transform: translateY(0);
+    }
+    50%{
+        color: rgba(255, 255, 0, 1);
+        margin-left: 15px;
+        transform: translateY(-10px);
+        text-shadow: 0px 10px 5px rgba(0,0,0, 0.8);
+    }
+}
+
+.loading-10{
+    width: 300px;
+    height: 300px;
+    background-color: #03a9f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-10 ul.loader{
+    display: flex;
+}
+
+.loading-10 ul.loader li{
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: AnimateWavy 1.3s linear infinite;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+@keyframes AnimateWavy {
+    0%,100%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-30px);
+    }
+}
+
+/* loading 11 Style */
+
+.loading-11{
+    width: 250px;
+    height: 250px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-11 .loader{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* background-color: #000; */
+    background-color: transparent;
+    box-shadow: 0px 30px #f00,
+                0px -30px #f00,
+                30px 0px #f00,
+                -30px 0px #f00,
+                30px 30px #00f,
+                -30px 30px #00f,
+                30px -30px #00f,
+                -30px -30px #00f;
+
+    animation: AnimateRotateShadows 1.5s linear infinite;
+}
+
+@keyframes AnimateRotateShadows {
+    0%{
+        transform: rotate(0deg);
+    }
+    0%,100%{ /* Grouping */
+        box-shadow: 0px 30px #f00,
+                    0px -30px #f00,
+                    30px 0px #f00,
+                    -30px 0px #f00,
+                    30px 30px #00f,
+                    -30px 30px #00f,
+                    30px -30px #00f,
+                    -30px -30px #00f;
+    }
+    50% {
+        transform: rotate(180deg);
+        box-shadow: 0px 70px #f00,
+                    0px -70px #f00,
+                    70px 0px #f00,
+                    -70px 0px #f00,
+                    50px 50px #00f,
+                    -50px 50px #00f,
+                    50px -50px #00f,
+                    -50px -50px #00f;
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading 12 Style */
+
+.loading-12{
+    width: 200px;
+    height: 200px;
+    background-color: #3636ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-12 .loader{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 5px solid rgba(255,255,255,0.1);
+    border-top: 5px solid #fff;
+
+    animation: AnimateRotateBorder 1s linear infinite;
+}
+
+@keyframes AnimateRotateBorder {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(300deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading 13 Style */
+
+.loading-13{
+    width: 300px;
+    height: 300px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-13 .loader{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+.loading-13 .loader::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 4px 0px rgba(0,0,0, 0.8);
+    animation: AnimateRotateShadow 1s linear infinite;
+}
+
+@keyframes AnimateRotateShadow {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.loading-13 .loader h3{
+    font-size: 30px;
+    font-weight: 500;
+    color: #333;
+    letter-spacing: 4px;
+}
